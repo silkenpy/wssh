@@ -11,4 +11,5 @@ EXPOSE 443
 USER root
 COPY authorized_keys /root/.ssh/authorized_keys
 RUN chmod 600 /root/.ssh/authorized_keys
-CMD ["/opt/start.sh"]
+EXPOSE 8029
+CMD ["python3", "/opt/wssh.py", "--address='0.0.0.0'", "--port=8029"]
