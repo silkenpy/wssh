@@ -15,4 +15,4 @@ USER root
 COPY authorized_keys /root/.ssh/authorized_keys
 RUN chmod 600 /root/.ssh/authorized_keys
 EXPOSE 8029
-CMD ["/opt/start.sh"]
+CMD ["start.sh"]
