@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 WORKDIR /opt
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tehran
