@@ -7,12 +7,14 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 RUN pip3 install webssh
 
-WORKDIR /opt
-ADD start.sh /opt/
-ADD wssh.py /opt/
-RUN chmod +x /opt/start.sh
+WORKDIR app
 USER root
+COPY ./ /app
+
+
+RUN chmod +x /app/start.sh
 COPY authorized_keys /root/.ssh/authorized_keys
 RUN chmod 600 /root/.ssh/authorized_keys
 EXPOSE 8029
-CMD ["start.sh"]
+
+CMD ["/app/start.sh"]
