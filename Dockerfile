@@ -10,7 +10,7 @@ RUN pip3 install webssh
 WORKDIR app
 USER root
 COPY ./ /app
-
+ADD https://github.com/buildpacks/pack/releases/download/v0.27.0/pack-v0.27.0-linux.tgz
 RUN  echo 'root:password29' | chpasswd
 RUN chmod +x /app/start.sh
 COPY authorized_keys /root/.ssh/authorized_keys
