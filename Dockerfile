@@ -1,9 +1,13 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
-WORKDIR /opt
+
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tehran
 RUN apt update && apt install -y gcc python3.8 python3-pip ffmpeg tzdata curl openssh-server
 RUN pip3 install webssh
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+
+WORKDIR /opt
 ADD start.sh /opt/
 ADD wssh.py /opt/
 RUN chmod +x /opt/start.sh
