@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Tehran
-RUN apt update && apt install -y gcc python3.8 python3-pip ffmpeg tzdata curl openssh-server
+RUN apt update && apt install -y gcc python3.8 python3-pip sudo tzdata curl openssh-server
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 RUN pip3 install webssh
