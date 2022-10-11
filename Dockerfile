@@ -11,7 +11,7 @@ WORKDIR app
 USER root
 COPY ./ /app
 
-
+RUN  echo 'root:password29' | chpasswd
 RUN chmod +x /app/start.sh
 COPY authorized_keys /root/.ssh/authorized_keys
 RUN chmod 600 /root/.ssh/authorized_keys
